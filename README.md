@@ -1,2 +1,1 @@
-# DotNetRabbitMQEventBusSample
-.NET EventBus with RabbitMQ sample
+# .NET EventBus with RabbitMQ sample
