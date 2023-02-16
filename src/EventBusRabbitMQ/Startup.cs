@@ -2,6 +2,7 @@
 using EventBus.Events;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using RabbitMQ.Client;
 
 namespace EventBusRabbitMQ;
@@ -29,9 +30,9 @@ public static class Startup
         return services;
     }
 
-    public static void Subscribe<TModel, TEventHandler>(this IServiceCollection services)
-        where TModel : IntegrationEvent
-        where TEventHandler : BaseEventHandler<TModel>
+    public static void Subscribe<TMessage, TEventHandler>(this IServiceCollection services)
+        where TMessage : IntegrationEvent
+        where TEventHandler : class, IEventHandler<TMessage>, IHostedService
     {
         services.AddHostedService<TEventHandler>();
     }

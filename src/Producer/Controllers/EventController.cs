@@ -21,7 +21,7 @@ namespace Producer.Controllers
             var data = new EventData();
             data.Message = "Message from ID:" + data.Id;
 
-            _eventProducer.Publish("test-queue", data);
+            _eventProducer.Publish(MessageQueue.Queue, data);
 
             return Ok();
         }

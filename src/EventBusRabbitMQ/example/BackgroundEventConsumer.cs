@@ -2,11 +2,11 @@
 
 namespace EventBusRabbitMQ.example
 {
-    public class EventConsumer : BaseEventHandler<EventData>
+    public class BackgroundEventConsumer : BackgroundEventHandler<EventData>
     {
-        const string _queue = "test-queue";
+        const string _queue = MessageQueue.Queue;
 
-        public EventConsumer(IEventBus @event) : base(@event)
+        public BackgroundEventConsumer(IEventBus @event) : base(@event)
         {
         }
 

@@ -4,12 +4,12 @@ using Microsoft.Extensions.Hosting;
 
 namespace EventBusRabbitMQ
 {
-    public abstract class BaseEventHandler<T> : BackgroundService, IEventHandler<T>
+    public abstract class BackgroundEventHandler<T> : BackgroundService, IEventHandler<T>
         where T : IntegrationEvent
     {
         private readonly IEventBus _event;
 
-        protected BaseEventHandler(IEventBus @event)
+        protected BackgroundEventHandler(IEventBus @event)
         {
             _event = @event;
         }

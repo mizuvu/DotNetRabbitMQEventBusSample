@@ -2,7 +2,7 @@
 
 namespace EventBus.Abstractions
 {
-    public interface IEventBus
+    public interface IEventBus : IDisposable
     {
         void Publish<T>(string queue, T message)
             where T : IntegrationEvent;

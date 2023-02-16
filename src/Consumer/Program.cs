@@ -11,7 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddRabbitMQEventBus(builder.Configuration);
-builder.Services.Subscribe<EventData, EventConsumer>();
+//builder.Services.Subscribe<EventData, HostedEventConsumer>();
+builder.Services.Subscribe<EventData, BackgroundEventConsumer>();
 
 var app = builder.Build();
 
